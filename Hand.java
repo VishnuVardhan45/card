@@ -16,7 +16,9 @@ public class Hand {
 		if(isFourOfAKind(cards)) {
 			return "Player Hand Ranking is four of a kind";
 		}
-		
+		if ( isFullHouse(cards)) {
+			return "player Hand Ranking is Full House";
+		}
 		return "something";
 	}
 	public static void sortBySuit( Card[] cs )
@@ -89,7 +91,7 @@ public class Hand {
 	       }
 	    }
 	 public static boolean isFourOfAKind( Card[] h )
-	   {
+	   	{
 	      boolean a1, a2;
 	      if ( h.length != 5 )
 	         return(false);
@@ -104,4 +106,21 @@ public class Hand {
 
 	      return ( a1 || a2 );
 	   }
+  	public static boolean isFullHouse( Card[] h )
+   		{
+      		boolean a1, a2;
+
+      		if ( h.length != 5 )
+         	return(false);
+
+      		sortByRank(h);      	
+		    a1 = h[0].rank() == h[1].rank() &&
+           	h[1].rank() == h[2].rank() &&
+           	h[3].rank() == h[4].rank();
+		    a2 = h[0].rank() == h[1].rank() &&
+            h[2].rank() == h[3].rank() &&
+            h[3].rank() == h[4].rank();
+
+      		return( a1 || a2 );
+   }	
 }

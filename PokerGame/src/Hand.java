@@ -3,10 +3,14 @@ public class Hand {
 	public String playerHandRanking(Card cards[]) {
 		if(isFlush(cards)) {
 			return "Player Hand Ranking is Flush";
-		}
-		if(isStraight(cards)) {
+		} else if(isStraight(cards)) {
 			return "Player Hand Ranking is straight";
+		} else if(isFlush(cards) && isStraight(cards)) {
+			return "player Hand Ranking is straight flush";
+		} else if(isFlush(cards) && isStraight(cards) && cards[4].getPip() == 14) {
+			return "player Hand Ranking is Royal Flush";
 		}
+		
 		return "something";
 	}
 	public static void sortBySuit( Card[] c )
@@ -54,7 +58,7 @@ public class Hand {
 
 	       if ( h.length != 5 )
 	          return false;
-	       sortByRank(h);           
+	       	  sortByRank(h);           
 	       if ( h[4].getPip() == 14 )
 	       {
 	          boolean a = h[0].getPip() == 2 && h[1].getPip() == 3 &&

@@ -22,6 +22,9 @@ public class Hand {
 		if ( isSet(cards)) {
 			return "Player Hand Ranking is Three Of a Kind";
 		}
+		if( isTwoPair ( cards ) ) {
+			return "Player Hand Ranking is Two Pair";
+		}
 		return "something";
 	}
 	public static void sortBySuit( Card[] cs )
@@ -127,14 +130,14 @@ public class Hand {
       		return( a1 || a2 );
    }
 	public static boolean isSet( Card[] h )
-   {
+   		{
       boolean a1, a2, a3;
 
       if ( h.length != 5 )
-         return(false);
+         return false;
 
       if ( isFourOfAKind(h) || isFullHouse(h) )
-         return(false);                 
+         return false;                 
 
       sortByRank(h);
 	  a1 = h[0].getPip() == h[1].getPip() &&                  
@@ -145,5 +148,24 @@ public class Hand {
            h[3].getPip() == h[4].getPip() ;
 
       return( a1 || a2 || a3 );
-   }		
+   }
+	public static boolean isTwoPair( Card[] h )
+   		{
+      boolean a1, a2, a3;
+
+      if ( h.length != 5 )
+         return false;
+
+     if ( isFourOfAKind(h) || isFullHouse(h) || isSet(h) )
+         return false;             
+      sortByRank(h);                      
+      a1 = h[0].getPip() == h[1].getPip() &&
+           h[2].getPip() == h[3].getPip() ;
+      a2 = h[0].getPip() == h[1].getPip() &&
+           h[3].getPip() == h[4].getPip() ;
+      a3 = h[1].getPip() == h[2].getPip() &&
+           h[3].getPip() == h[4].getPip() ;
+
+      return( a1 || a2 || a3 );
+   }			
 }

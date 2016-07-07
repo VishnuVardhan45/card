@@ -3,53 +3,59 @@ public class Hand {
 	public String playerHandRanking(Card cards[]) {
 		if(isFlush(cards)) {
 			return "Player Hand Ranking is Flush";
-		} else if(isStraight(cards)) {
+		} 
+		if(isStraight(cards)) {
 			return "Player Hand Ranking is straight";
-		} else if(isFlush(cards) && isStraight(cards)) {
+		} 
+		if(isFlush(cards) && isStraight(cards)) {
 			return "player Hand Ranking is straight flush";
-		} else if(isFlush(cards) && isStraight(cards) && cards[4].getPip() == 14) {
+		}
+		if(isFlush(cards) && isStraight(cards) && cards[4].getPip() == 14) {
 			return "player Hand Ranking is Royal Flush";
+		}
+		if(isFourOfAKind(cards)) {
+			return "Player Hand Ranking is four of a kind";
 		}
 		
 		return "something";
 	}
-	public static void sortBySuit( Card[] c )
+	public static void sortBySuit( Card[] cs )
 	   {
 	      int i, j, min_j;
-	      for ( i = 0 ; i < c.length ; i ++ )
+	      for ( i = 0 ; i < cs.length ; i ++ )
 	      {min_j = i;   
-	         for ( j = i+1 ; j < c.length ; j++ )
+	         for ( j = i+1 ; j < cs.length ; j++ )
 	         {
-	            if ( c[j].getSuit() < c[min_j].getSuit() )
+	            if ( cs[j].getSuit() < cs[min_j].getSuit() )
 	            {
 	               min_j = j;   
 	            }
 	         }
-	         Card help = c[i];
-	         c[i] = c[min_j];
-	         c[min_j] = help;
+	         Card help = cs[i];
+	         cs[i] = cs[min_j];
+	         cs[min_j] = help;
 	      }
 	   }
 	public boolean isFlush(Card[] cards) {
 		sortBySuit(cards);
  		return cards[0].getSuit() == cards[4].getSuit();
 	}
-	 public static void sortByRank( Card[] c )
+	 public static void sortByRank( Card[] cr )
 	   {
 	      int i, j, min_j;
-	      for ( i = 0 ; i < c.length ; i ++ )
+	      for ( i = 0 ; i < cr.length ; i ++ )
 	      {
 	         min_j = i;   	     
-	      for ( j = i+1 ; j < c.length ; j++ )
+	      for ( j = i+1 ; j < cr.length ; j++ )
 	         {
-	            if ( c[j].getPip() < c[min_j].getPip() )
+	            if ( cr[j].getPip() < cr[min_j].getPip() )
 	            {
 	               min_j = j;         
 	            }
 	         }
-	      	 Card help = c[i];
-	         c[i] = c[min_j];
-	         c[min_j] = help;
+	      	 Card help = cr[i];
+	         cr[i] = cr[min_j];
+	         cr[min_j] = help;
 	      }
 	   }
 	 public static boolean isStraight(Card[] h )

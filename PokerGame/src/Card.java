@@ -6,6 +6,12 @@ public class Card {
 		this.suit = suit;
 		this.pip = pip;
 	}
+	public int getSuit() {
+		return suit;
+	}
+	public int getPip() {
+		return pip;
+	}
 	public String toString() {
 		// TODO Auto-generated method stub
 		return suit+""+pip;

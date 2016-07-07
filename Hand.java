@@ -19,6 +19,9 @@ public class Hand {
 		if ( isFullHouse(cards)) {
 			return "player Hand Ranking is Full House";
 		}
+		if ( isSet(cards)) {
+			return "Player Hand Ranking is Three Of a Kind";
+		}
 		return "something";
 	}
 	public static void sortBySuit( Card[] cs )

@@ -93,16 +93,30 @@ public class cards {
 
 	}
 
-	public static boolean isStraight() {
-		java.util.Arrays.sort(pip);
 
+		public static boolean isStraight() {
+		java.util.Arrays.sort(pip);
+		if(pip[0]==0) {
+			 
+			  if(pip[1]==9){
+			  
+			   for(int i=1;i<4;i++){
+			     
+			      if(pip[i+1]-pip[i]!=1)
+			      return false;
+			  }
+			  
+			  
+			  }
+			  }else{
 		for (int i = 0; i < 4; i++) {
 
 			if (pip[i + 1] - pip[i] != 1)
 				return false;
-		}
+		}}
 		return true;
 	}
+	
 
 	public static boolean isThreeOfAKind() {
 		int count1 = 0, count2 = 0, count3 = 0;

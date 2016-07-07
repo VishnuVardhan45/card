@@ -114,13 +114,33 @@ public class Hand {
          	return(false);
 
       		sortByRank(h);      	
-		    a1 = h[0].rank() == h[1].rank() &&
-           	h[1].rank() == h[2].rank() &&
-           	h[3].rank() == h[4].rank();
-		    a2 = h[0].rank() == h[1].rank() &&
-            h[2].rank() == h[3].rank() &&
-            h[3].rank() == h[4].rank();
+		    a1 = h[0].getPip() == h[1].getPip() &&
+           	h[1].getPip() == h[2].getPip() &&
+           	h[3].getPip() == h[4].getPip();
+		    a2 = h[0].getPip() == h[1].getPip() &&
+            h[2].getPip() == h[3].getPip() &&
+            h[3].getPip() == h[4].getPip();
 
       		return( a1 || a2 );
-   }	
+   }
+	public static boolean isSet( Card[] h )
+   {
+      boolean a1, a2, a3;
+
+      if ( h.length != 5 )
+         return(false);
+
+      if ( isFourOfAKind(h) || isFullHouse(h) )
+         return(false);                 
+
+      sortByRank(h);
+	  a1 = h[0].getPip() == h[1].getPip() &&                  
+           h[1].getPip() == h[2].getPip() ;
+	  a2 = h[1].getPip() == h[2].getPip() &&
+           h[2].getPip() == h[3].getPip() ;
+	  a3 = h[2].getPip() == h[3].getPip() &&
+           h[3].getPip() == h[4].getPip() ;
+
+      return( a1 || a2 || a3 );
+   }		
 }

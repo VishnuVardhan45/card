@@ -4,7 +4,9 @@ public class Hand {
 		if(isFlush(cards)) {
 			return "Player Hand Ranking is Flush";
 		}
-		
+		if(isStraight(cards)) {
+			return "Player Hand Ranking is straight";
+		}
 		return "something";
 	}
 	public static void sortBySuit( Card[] c )
@@ -46,4 +48,34 @@ public class Hand {
 	         c[min_j] = help;
 	      }
 	   }
+	 public static boolean isStraight(Card[] h )
+	    {
+	       int i, testRank;
+
+	       if ( h.length != 5 )
+	          return false;
+	       sortByRank(h);           
+	       if ( h[4].getPip() == 14 )
+	       {
+	          boolean a = h[0].getPip() == 2 && h[1].getPip() == 3 &&
+	                      h[2].getPip() == 4 && h[3].getPip() == 5 ;
+	          boolean b = h[0].getPip() == 10 && h[1].getPip() == 11 &&        
+	                      h[2].getPip() == 12 && h[3].getPip() == 13 ;
+
+	          return ( a || b );
+	       }
+	       else
+	       {
+	          testRank = h[0].getPip() + 1;
+
+	          for ( i = 1; i < 5; i++ )
+	          {
+	             if ( h[i].getPip() != testRank )
+	                return false;     
+	             testRank++;   
+	          }
+
+	          return true;   
+	       }
+	    }
 }

@@ -73,20 +73,7 @@ public class PokerHand {
 
 	}
 
-	public static boolean isFourOfAKind() {
-		int count1 = 0, count2 = 0;
-		for (int i = 0; i < 5; i++) {
-			if (pip[0] == pip[i]) {
-				count1++;
-			}
-			if (pip[1] == pip[i]) {
-				count2++;
-			}
-		}
-
-		return count1 == 4 || count2 == 4;
-
-	}
+	
 
 	public static boolean isFullHouse() {
 
@@ -168,6 +155,24 @@ public class PokerHand {
 		}
 
 		return count == 1;
+
+	}
+	public static int getRank() {
+		return rank;
+	}
+
+	public static boolean isFourOfAKind() {
+		int count1 = 0, count2 = 0;
+		for (int i = 0; i < 5; i++) {
+			if (pip[0] == pip[i]) {
+				count1++;
+			}
+			if (pip[1] == pip[i]) {
+				count2++;
+			}
+		}
+
+		return count1 == 4 || count2 == 4;
 
 	}
 

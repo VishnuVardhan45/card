@@ -1,4 +1,4 @@
-public class card {
+public class Card {
     
     
     public static int getsuit(int seq) {

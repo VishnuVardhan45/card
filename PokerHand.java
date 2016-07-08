@@ -11,8 +11,8 @@ public class PokerHand {
 	public static String pokerhand() {
 		String s;
 		for (int i = 0; i < 5; i++) {
-			suit[i] = card.getsuit(a[i]);
-			pip[i] = card.getpip(a[i]);
+			suit[i] = Card.getsuit(a[i]);
+			pip[i] = Card.getpip(a[i]);
 			//System.out.print(" suit  " + suit[i] + " pip" + pip[i] + "\n");
 		}
 

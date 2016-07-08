@@ -1,4 +1,5 @@
-public class cardGame {
+
+public class testPokerhand {
 
 	public static void main(String[] args) {
 
